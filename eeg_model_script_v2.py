@@ -1,5 +1,5 @@
 
-# EEG Model Training Notebook
+# EEG Model Training Notebook Version 2 (New parameters)
 # 
 # This notebook contains the model training pipeline used for EEG classification. An overview of this notebook is as follows
 # 
@@ -125,7 +125,7 @@ def stress_2_accumulator(stress_windows):
 def split_dataset(labels, k=5):
     '''
     split the features and labels into k groups for k fold validation
-    we use StratifiedKFold to ensure that the class distrubutions within each sample is the same as the global distrubution
+    we use StratifiedKFold to ensure that the class distributions within each sample is the same as the global distribution
     '''
     kf = StratifiedKFold(n_splits=k, shuffle=True)
 

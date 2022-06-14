@@ -38,8 +38,7 @@ import time
 
 # Training/Testing dataset creation
 # functions for preprocessing dataset
-# the data is stored in an Nx66 matrix. The first column is time in milliseconds, the second is the min/max normalized feel trace ([0,1])
-# the other 64 entries are the eeg channels 
+# The features are 5x64x64 images (Channel,Height,Width)s 
 
 def load_and_split_dataset(eeg_ft_dir = 'ALIGNED_DATA', split_size=100, subject_num = 5, k=5, label_type='angle', num_classes=3):
     # choose the subject
@@ -125,7 +124,7 @@ def stress_2_accumulator(stress_windows):
 def split_dataset(labels, k=5):
     '''
     split the features and labels into k groups for k fold validation
-    we use StratifiedKFold to ensure that the class distrubutions within each sample is the same as the global distrubution
+    we use StratifiedKFold to ensure that the class distributions within each sample is the same as the global distribution
     '''
     kf = StratifiedKFold(n_splits=k, shuffle=True)
 
